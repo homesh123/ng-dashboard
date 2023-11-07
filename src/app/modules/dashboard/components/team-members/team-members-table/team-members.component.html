@@ -1,0 +1,34 @@
+<div class="flex-col rounded-lg bg-white px-8 py-8 dark:bg-night-700 sm:flex-row">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex-col items-center">
+      <h3 class="text-md font-bold text-gray-900 dark:text-night-50 flex">Team Members <span
+          class="flex items-center rounded-md bg-purple-500/25 py-1 pr-2 pl-1 ml-2 text-xs font-semibold text-purple-500">{{teamData?.grid_data.length}}
+          users</span></h3>
+    </div>
+    <button
+      class="flex-none rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 grid-options"><i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="relative overflow-x-auto">
+    <table class="w-full table-auto">
+      <!--Table head-->
+      <thead class="text-xs uppercase text-gray-400 dark:text-night-300">
+        <tr>
+          <th> <input id="default-checkbox" type="checkbox" value="" [(ngModel)]="allSelected" (click)="selectAllRows()"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+          </th>
+          <th class="py-3 text-left" *ngFor="let column of teamData?.grid_columns">{{column.column_name}}</th>
+        </tr>
+      </thead>
+      <!--end Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr *ngFor="let member of teamData?.grid_data" [member]="member" team-members-table-items
+          class="border-b border-dashed border-gray-200 hover:bg-gray-100 dark:border-night-500 dark:hover:bg-night-600">
+        </tr>
+      </tbody>
+      <!--end::Table body-->
+    </table>
+  </div>
+</div>
