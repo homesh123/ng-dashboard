@@ -12,7 +12,7 @@ export class TopSectionComponent {
   @ViewChild("chart") columnchart: ChartComponent | undefined ;
 
   public chartOptions: Partial<ChartOptions>;
-  public donutChartOptions: Partial<ChartOptions>;
+  public donutChartOptions:any;
   
   constructor() {
     this.chartOptions = {
@@ -85,12 +85,11 @@ export class TopSectionComponent {
     };
 
     this.donutChartOptions = {
-      series: [
-        {
-          name: "My-series",
-          data: [44, 55, 13, 43, 22],
-        }
-      ],
+      series: [44, 55, 41, 17, 15],
+      chart: {
+        width: 380,
+        type: "donut"
+      },
       plotOptions: {
         pie: {
           startAngle: -90,
