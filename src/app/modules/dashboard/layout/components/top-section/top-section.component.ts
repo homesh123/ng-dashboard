@@ -19,43 +19,40 @@ export class TopSectionComponent {
       series: [
         {
           name: "PRODUCT A",
-          data: [44, 55, 41, 67, 22, 43]
+          data: [44, 55, 41, 67, 22, 43],
+          color: "#886fce",
         },
         {
           name: "PRODUCT B",
-          data: [13, 23, 20, 8, 13, 27]
-        },
-        {
-          name: "PRODUCT C",
-          data: [11, 17, 15, 15, 21, 14]
+          data: [13, 23, 20, 8, 13, 27],
+          color: "#9c8acf",
         },
         {
           name: "PRODUCT D",
-          data: [21, 7, 25, 13, 22, 8]
+          data: [21, 7, 25, 13, 22, 8],
+          color: "#f2f2f2"
         }
       ],
-      colors : ['#b84644', '#4576b5'],
       chart: {
         type: "bar",
         height: 350,
         stacked: true,
         toolbar: {
-          show: true
+          show: false
         },
         zoom: {
           enabled: true
         }
       },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: false
+      },
       responsive: [
         {
-          breakpoint: 480,
-          options: {
-            legend: {
-              position: "bottom",
-              offsetX: -10,
-              offsetY: 0
-            }
-          }
+          breakpoint: 480
         }
       ],
       plotOptions: {
@@ -72,11 +69,15 @@ export class TopSectionComponent {
           "04/2011",
           "05/2011",
           "06/2011"
-        ]
+        ],
+        title: {
+          text: "Months"
+        }
       },
-      legend: {
-        position: "right",
-        offsetY: 40
+      yaxis: {
+        title: {
+          text: "Security ratings"
+        }
       },
       fill: {
         opacity: 1
