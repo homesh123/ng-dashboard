@@ -1,5 +1,6 @@
-<div class="flex-col rounded-lg bg-white px-8 py-8 sm:flex-row">
-  <div class="mb-4 flex items-center justify-between">
+<div class="px-5 mb-10 ">
+<div class="flex-col bg-white border border-solid rounded-lg border-gray-200 shadow-md  sm:flex-row">
+  <div class="flex items-center justify-between p-3">
     <div class="flex-col items-center">
       <h3 class="text-md font-bold text-gray-900  flex">Team Members <span
           class="flex items-center border border-solid border-purple-400 rounded-full bg-purple-50 py-1 pr-2 pl-1 ml-2 text-xs font-semibold text-purple-500">{{teamData?.grid_data.length}}
@@ -26,13 +27,51 @@
       <!--end Table head-->
       <!--Table body-->
       <tbody>
-        <tr *ngFor="let member of teamData?.grid_data" [member]="member" team-members-table-items (onUserDelete)="deleteUser($event)" (onUserEdit)="editUser($event)"
+        <tr *ngFor="let member of teamData?.grid_data | slice:0:10;" [member]="member" team-members-table-items (onUserDelete)="deleteUser($event)" (onUserEdit)="editUser($event)"
           class="border-b border-dashed border-gray-200 hover:bg-gray-100 ">
         </tr>
       </tbody>
       <!--end::Table body--> 
     </table>
+    <div class="flex flex-row justify-between p-3">
+        <!-- Previous Button -->
+        <a href="#" class="flex items-center justify-center px-3 h-8 mr-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+          <svg class="w-3.5 h-3.5 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+          </svg>
+          Previous
+        </a>
+        <nav aria-label="Page navigation ">
+          <ul class="inline-flex -space-x-px text-sm">
+           
+            <li>
+              <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+            </li>
+            <li>
+              <a href="#" aria-current="page" class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">...</a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
+            </li>
+           
+          </ul>
+        </nav>
+        <a href="#" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700">
+          Next
+          <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+          </svg>
+        </a>
+      
+    </div>
   </div>
+</div>
 </div>
 <app-delete-user-confirmation-popup *ngIf="showDeleteUserConfirmationPopup" (onClose)="showDeleteUserConfirmationPopup = false" [user]="currentUser"></app-delete-user-confirmation-popup>
 <app-edit-user-popup *ngIf="showEditUserConfirmationPopup" (onClose)="showEditUserConfirmationPopup = false" [user]="currentUser"></app-edit-user-popup>

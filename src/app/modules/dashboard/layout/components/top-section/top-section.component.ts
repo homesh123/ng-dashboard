@@ -1,6 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import * as Highcharts from 'highcharts'
-import { HighchartsChartModule } from 'highcharts-angular';
 import { NgApexchartsModule,ChartComponent } from 'ng-apexcharts';
 import { ChartOptions } from 'src/app/shared/models/chart-options';
 @Component({
@@ -20,19 +18,68 @@ export class TopSectionComponent {
     this.chartOptions = {
       series: [
         {
-          name: "My-series",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+          name: "PRODUCT A",
+          data: [44, 55, 41, 67, 22, 43]
+        },
+        {
+          name: "PRODUCT B",
+          data: [13, 23, 20, 8, 13, 27]
+        },
+        {
+          name: "PRODUCT C",
+          data: [11, 17, 15, 15, 21, 14]
+        },
+        {
+          name: "PRODUCT D",
+          data: [21, 7, 25, 13, 22, 8]
         }
       ],
+      colors : ['#b84644', '#4576b5'],
       chart: {
+        type: "bar",
         height: 350,
-        type: "bar"
+        stacked: true,
+        toolbar: {
+          show: true
+        },
+        zoom: {
+          enabled: true
+        }
       },
-      title: {
-        text: "My First Angular Chart"
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: "bottom",
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }
+      ],
+      plotOptions: {
+        bar: {
+          horizontal: false
+        }
       },
       xaxis: {
-        categories: ["Jan", "Feb",  "Mar",  "Apr",  "May",  "Jun",  "Jul",  "Aug", "Sep"]
+        type: "category",
+        categories: [
+          "01/2011",
+          "02/2011",
+          "03/2011",
+          "04/2011",
+          "05/2011",
+          "06/2011"
+        ]
+      },
+      legend: {
+        position: "right",
+        offsetY: 40
+      },
+      fill: {
+        opacity: 1
       }
     };
 

@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, SlicePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TeamService } from 'src/app/core/services/team.service';
@@ -10,7 +10,7 @@ import { TeamMembersTableItemsComponent } from '../team-members-table-items/team
   templateUrl: './team-members.component.html',
   styleUrls: ['./team-members.component.scss'],
   standalone: true,
-  imports: [NgFor,NgIf,NgClass, TeamMembersTableItemsComponent,FormsModule,DeleteUserConfirmationPopupComponent,EditUserPopupComponent],
+  imports: [NgFor,NgIf,NgClass,SlicePipe, TeamMembersTableItemsComponent,FormsModule,DeleteUserConfirmationPopupComponent,EditUserPopupComponent],
 })
 export class TeamMembersComponent implements OnInit{
   public teamData: any;
